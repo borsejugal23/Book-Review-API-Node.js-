@@ -95,22 +95,22 @@ Example endpoints:
 
 ### 🔐 Register a user
 ```bash
-curl -X POST http://localhost:8080/api/register   -H "Content-Type: application/json"   -d '{"email": "user@example.com", "password": "123456"}'
+curl -X POST https://book-review-api-node-js.onrender.com/api/signup   -H "Content-Type: application/json"   -d '{"email": "user@example.com", "password": "123456"}'
 ```
 
 ### 🔐 Login
 ```bash
-curl -X POST http://localhost:8080/api/login   -H "Content-Type: application/json"   -d '{"email": "user@example.com", "password": "123456"}'
+curl -X POST https://book-review-api-node-js.onrender.com/api/login   -H "Content-Type: application/json"   -d '{"email": "user@example.com", "password": "123456"}'
 ```
 
 ### 📚 Get all books
 ```bash
-curl http://localhost:8080/api/books
+curl https://book-review-api-node-js.onrender.com/api/books
 ```
 
 ### 🔍 Search books
 ```bash
-curl http://localhost:8080/api/search?query=harry
+curl https://book-review-api-node-js.onrender.com/api/search?query=Amazon
 ```
 
 ---
