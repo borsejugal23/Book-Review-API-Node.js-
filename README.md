@@ -1,5 +1,3 @@
-# ReadMe File
-
 # Book Review API
 
 ## Introduction
