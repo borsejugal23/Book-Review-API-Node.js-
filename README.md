@@ -58,21 +58,14 @@ GET http://localhost:8080/api/search?query=harry     # Search books by title or 
 
 
 
-Tech Stack
+## Tech Stack
+
 Node.js
-
 Express.js
-
 MongoDB
-
 Mongoose
-
 JWT (jsonwebtoken)
-
 express-validator
-
 dotenv
-
 morgan
-
 cors
