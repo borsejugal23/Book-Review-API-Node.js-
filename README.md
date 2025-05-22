@@ -1,71 +1,178 @@
-# Book Review API
+# 📘 Book Review API
 
-## Introduction
+A backend RESTful API built with **Node.js**, **Express**, and **MongoDB** that allows users to register, authenticate, manage books, and post reviews. The app includes JWT authentication, search functionality, and protected routes.
 
-This project is a backend API for a Book Review Platform that allows users to register, login, manage books, and post reviews. It supports basic authentication, data validation, and protected routes using middleware. Built with Node.js, Express, and MongoDB, this project demonstrates RESTful API design, token-based auth, and role-based access control.
+---
 
-## Project Type
+## 🚀 Project Type
 
-Backend
+**Backend**
 
-## Deployed App
+---
 
-Backend: [https://your-backend-deployment-link.com](https://your-backend-deployment-link.com)  
-Database: MongoDB Atlas or Localhost
+## 🌐 Deployed App
 
-## Directory Structure
+- Backend: [https://your-backend-deployment-link.com](https://your-backend-deployment-link.com)  
+- Database: MongoDB Atlas / Localhost
+
+---
+
+## 🧩 Directory Structure
+
+```
 book-review-api/
-├─ config/
-├─ controllers/
-├─ middleware/
-├─ models/
-├─ routes/
-├─ utils/
-├─ app.js
-├─ index.js
+├── config/
+├── controllers/
+├── middleware/
+├── models/
+├── routes/
+├── utils/
+├── app.js
+├── index.js
+├── .env
+```
 
+---
 
-## Features
+## 🎯 Features
 
-- User registration and login with JWT authentication
-- Book CRUD operations
-- Review submission and retrieval
-- Search functionality (title or author)
-- Middleware for protected routes
+- User registration and login with JWT
+- Book creation, retrieval, and listing
+- Add and view book reviews
+- Search books by title or author (case-insensitive)
+- Middleware to protect sensitive routes
 - Mongoose schema validation
 
-## Design Decisions or Assumptions
+---
 
-- Used JWT for stateless authentication
-- Used MongoDB for flexible document-based storage
-- Search implemented using regex with case-insensitive matching
-- Authenticated routes are protected via middleware
+## 📌 Design Decisions & Assumptions
 
-GET http://localhost:8080/api/books                  # Get all books
-POST http://localhost:8080/api/books                 # Add a book (auth required)
-GET http://localhost:8080/api/search?query=harry     # Search books by title or author
+- Stateless auth using JWT
+- MongoDB used for flexibility in schema design
+- Regex-based partial and case-insensitive search
+- Express middleware for authentication/authorization
+- Modular code structure with controllers and routes
+
+---
+
+## ⚙️ Project Setup Instructions
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/book-review-api.git
+
+# 2. Navigate into the project
+cd book-review-api
+
+# 3. Install dependencies
+npm install
+
+# 4. Add environment variables in a `.env` file:
+MONGO_URI=your_mongo_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=8080
+
+# 5. Start the development server
+node index.js
+```
+
+---
+
+## 💻 Running Locally
+
+Once the server is started (`node index.js`), you can test the API at:
+```
+http://localhost:8080
+```
+
+Example endpoints:
+- `GET /api/books`
+- `GET /api/search?query=harry`
+
+---
+
+## 📬 Example API Requests (via `curl` or Postman)
+
+### 🔐 Register a user
+```bash
+curl -X POST http://localhost:8080/api/register   -H "Content-Type: application/json"   -d '{"email": "user@example.com", "password": "123456"}'
+```
+
+### 🔐 Login
+```bash
+curl -X POST http://localhost:8080/api/login   -H "Content-Type: application/json"   -d '{"email": "user@example.com", "password": "123456"}'
+```
+
+### 📚 Get all books
+```bash
+curl http://localhost:8080/api/books
+```
+
+### 🔍 Search books
+```bash
+curl http://localhost:8080/api/search?query=harry
+```
+
+---
+
+## 📘 API Endpoints
+
+| Method | Endpoint                | Description                          |
+|--------|-------------------------|--------------------------------------|
+| POST   | /api/register           | Register new user                    |
+| POST   | /api/login              | Login and get JWT                    |
+| GET    | /api/books              | Fetch all books                      |
+| POST   | /api/books              | Add a new book (Auth required)       |
+| GET    | /api/search?query=term  | Search books by title or author      |
+| POST   | /api/reviews/:bookId    | Add a review for a book (Auth)       |
+| GET    | /api/reviews/:bookId    | Get reviews for a book               |
+
+---
+
+## 🧠 Database Schema (Simplified)
+
+### 📘 Book
+```js
+{
+  title: String,
+  author: String,
+  description: String,
+  createdBy: ObjectId (User)
+}
+```
+
+### 👤 User
+```js
+{
+  email: String,
+  password: String (Hashed)
+}
+```
+
+### 📝 Review
+```js
+{
+  bookId: ObjectId (Book),
+  userId: ObjectId (User),
+  rating: Number,
+  comment: String
+}
+```
+
+---
+
+## 🛠️ Tech Stack
+
+- **Node.js**
+- **Express.js**
+- **MongoDB + Mongoose**
+- **JWT (Authentication)**
+- **express-validator**
+- **dotenv**
+- **morgan**
+- **cors**
 
 
-| Method | Endpoint               | Description                     |
-| ------ | ---------------------- | ------------------------------- |
-| POST   | /api/register          | Register a new user             |
-| POST   | /api/login             | Login and get JWT token         |
-| GET    | /api/books             | Get all books                   |
-| POST   | /api/books             | Add new book (auth required)    |
-| GET    | /api/search?query=term | Search books by title or author |
-| POST   | /api/reviews/\:bookId  | Add a review (auth required)    |
-| GET    | /api/reviews/\:bookId  | Get reviews for a book          |
 
 
 
-## Tech Stack
-
-Node.js
-Express.js
-MongoDB
-Mongoose
-JWT (jsonwebtoken)
-express-validator
-dotenv
-morgan
-cors
