@@ -91,7 +91,7 @@ Example endpoints:
 
 ---
 
-## 📬 Example API Requests (via `curl` or Postman)
+## 📬 Example API Requests (via Postman)
 
 ### 🔐 Register a user
 ```bash
