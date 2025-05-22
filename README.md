@@ -12,7 +12,7 @@ A backend RESTful API built with **Node.js**, **Express**, and **MongoDB** that 
 
 ## 🌐 Deployed App
 
-- Backend: [https://your-backend-deployment-link.com](https://your-backend-deployment-link.com)  
+- Backend: [https://book-review-api-node-js.onrender.com](click here to test)  
 - Database: MongoDB Atlas / Localhost
 
 ---
