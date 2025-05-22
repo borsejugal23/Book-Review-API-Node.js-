@@ -95,22 +95,30 @@ Example endpoints:
 
 ### 🔐 Register a user
 ```bash
-curl -X POST https://book-review-api-node-js.onrender.com/api/signup   -H "Content-Type: application/json"   -d '{"email": "user@example.com", "password": "123456"}'
+https://book-review-api-node-js.onrender.com/api/signup
 ```
 
 ### 🔐 Login
 ```bash
-curl -X POST https://book-review-api-node-js.onrender.com/api/login   -H "Content-Type: application/json"   -d '{"email": "user@example.com", "password": "123456"}'
+ https://book-review-api-node-js.onrender.com/api/login
 ```
 
 ### 📚 Get all books
 ```bash
-curl https://book-review-api-node-js.onrender.com/api/books
+ https://book-review-api-node-js.onrender.com/api/books
+```
+### 📚 Add books
+```bash
+ https://book-review-api-node-js.onrender.com/api/books
+```
+### 📚 Add books review
+```bash
+ https://book-review-api-node-js.onrender.com/api/reviews/:bookId
 ```
 
 ### 🔍 Search books
 ```bash
-curl https://book-review-api-node-js.onrender.com/api/search?query=Amazon
+ https://book-review-api-node-js.onrender.com/api/search?query=Amazon
 ```
 
 ---
@@ -119,13 +127,14 @@ curl https://book-review-api-node-js.onrender.com/api/search?query=Amazon
 
 | Method | Endpoint                | Description                          |
 |--------|-------------------------|--------------------------------------|
-| POST   | /api/register           | Register new user                    |
+| POST   | /api/signup             | signup new user                      |
 | POST   | /api/login              | Login and get JWT                    |
 | GET    | /api/books              | Fetch all books                      |
 | POST   | /api/books              | Add a new book (Auth required)       |
 | GET    | /api/search?query=term  | Search books by title or author      |
 | POST   | /api/reviews/:bookId    | Add a review for a book (Auth)       |
 | GET    | /api/reviews/:bookId    | Get reviews for a book               |
+| DELETE | /api/reviews/:bookId    | delete a book by id                  |
 
 ---
 
